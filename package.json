@@ -1,6 +1,6 @@
 {
   "@hexlet/code": "fullstack-javascript-project-44",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "[![Actions Status](https://github.com/l1nky358/fullstack-javascript-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/l1nky358/fullstack-javascript-project-44/actions)",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/l1nky358/fullstack-javascript-project-44.git"        
+    "url": "git+https://github.com/l1nky358/fullstack-javascript-project-44.git"
   },
   "keywords": [],
   "author": "",
@@ -18,8 +18,7 @@
     "url": "https://github.com/l1nky358/fullstack-javascript-project-44/issues"
   },
   "homepage": "https://github.com/l1nky358/fullstack-javascript-project-44#readme",
-   "bin": {
+  "bin": {
     "brain-games": "bin/brain-games.js"
-    }
   }
-
+}
