@@ -43,4 +43,57 @@ brain-progression
 npx brain-progression
 
 
+##Запуск игры "НОД"
+##Правильный ответ
+Welcome to the Brain Games!
+May I have your name? Sam
+Hello, Sam!
+Question: 25 50
+Your answer: 25
+Correct!
+Question: 100 52
+Your answer: 4
+Correct!
+Question: 3 9
+Your answer: 3
+Correct!
+Congratulations, Sam!
 
+##Неправильный ответ
+Welcome to the Brain Games!
+May I have your name? Sam
+Hello, Sam!
+Question: 25 50
+Your answer: 24
+'24' is wrong answer ;(.Correct answer was '25'.)
+Let's try again, Sam
+
+## Запуск игры "Просто ли число?"
+```bash
+# Установка и запуск через npm
+npm link
+brain-prime
+
+# Или через npx, если установлено глобально
+npx brain-prime
+## Правильный ответ
+Welcome to the Brain Games!
+May I have your name? Sam
+Hello, Sam!
+Question: 7
+Your answer: yes
+Correct!
+Question: 4
+Your answer: no
+Correct!
+Question: 13
+Your answer: yes
+Correct!
+Congratulations, Sam!
+##Неправильный ответ
+Welcome to the Brain Games!
+May I have your name? Sam
+Hello, Sam!
+Question: 7
+Your answer: no
+'no' is wrong answer ;(.Correct answer was 'yes'.)
