@@ -50,5 +50,4 @@ const main = () => {
   startGame(name);
 };
 
-main();
 
