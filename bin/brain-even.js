@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 
-const readlineSync = require('readline-sync');
+import readlineSync from 'readline-sync';
 
-// Проверяем, чётное ли число
 const isEven = num => num % 2 === 0;
 
-// Основная логика игры
 const playBrainEvenGame = () => {
   console.log("Welcome to the Brain Games!");
   const name = readlineSync.question("May I have your name? ");
