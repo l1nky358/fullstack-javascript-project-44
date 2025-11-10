@@ -1,41 +1,29 @@
 #!/usr/bin/env node
+// This script implements the "Brain Even"
 
-console.log('Hello, Tirion');
-
-const readline = require('readline');
+import readline from 'readline';
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
-const generateQuestion = () => {
-  const num = Math.floor(Math.random() * 100);
-  return num;
-};
+const generateQuestion = () => Math.floor(Math.random() * 100) + 1;
 
-const isEven = (num) => num % 2 === 0;
+const startGame = () => {
+  const questionNumber = generateQuestion();
+  console.log(`Question: ${questionNumber}`);
+  rl.question('Your answer (yes/no): ', (answer) => {
+    const isEven = questionNumber % 2 === 0;
+    const expectedAnswer = isEven ? 'yes' : 'no';
 
-const askQuestion = (question) => {
-  return new Promise((resolve) => {
-    rl.question(`Question: ${question}\n`, (answer) => {
-      resolve(answer);
-    });
+    if (answer.toLowerCase() === expectedAnswer) {
+      console.log('Correct!');
+    } else {
+      console.log(`Incorrect. The correct answer is '${expectedAnswer}'.`);
+    }
+    rl.close();
   });
 };
 
-(async () => {
-  const number = generateQuestion();
-  const answer = await askQuestion(number.toString()); // исправлено здесь
-
-  const correctAnswer = isEven(number) ? 'yes' : 'no';
-
-  if (answer.trim().toLowerCase() === correctAnswer) {
-    console.log('Correct!');
-  } else {
-    console.log(`Incorrect! The correct answer was ${correctAnswer}.`);
-  }
-
-  console.log('Game over!');
-  rl.close();
-})();
+startGame();
