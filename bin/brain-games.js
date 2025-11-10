@@ -1,4 +1,6 @@
 #!/usr/bin/env node
-
+console.log('node bin/brain-games.js');
 console.log('Welcome to the Brain Games!');
-console.log('May I have your name?');
+import { greetUser } from '../src/cli.js';
+
+greetUser();
