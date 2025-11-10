@@ -1,60 +1,17 @@
-#!/usr/bin/env node
-import readlineSync from 'readline-sync'
 
-const roundsCount = 3;
 
-const getUserName = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  return name;
-};
+// Определение функции startGame
+function startGame() {
+  // Пример реализации: выводит вопрос калькулятора
+  const number1 = Math.floor(Math.random() * 100);
+  const number2 = Math.floor(Math.random() * 100);
+  const operations = ['+', '-', '*'];
+  const operation = operations[Math.floor(Math.random() * operations.length)];
 
-const runGame = (gameName) => {
-  const userName = getUserName();
+  const question = `Question: ${number1} ${operation} ${number2}`;
+  console.log(question);
+  // Дополнительная логика игры
+}
 
-  const gameFunctions = {
-    calc: () => {
-      for (let i = 0; i < roundsCount; i += 1) {
-        const num1 = Math.floor(Math.random() * 100);
-        const num2 = Math.floor(Math.random() * 100);
-        const operations = ['+', '-', '*'];
-        const operation = operations[Math.floor(Math.random() * operations.length)];
-        let correctAnswer;
-
-        switch (operation) {
-          case '+':
-            correctAnswer = num1 + num2;
-            break;
-          case '-':
-            correctAnswer = num1 - num2;
-            break;
-          case '*':
-            correctAnswer = num1 * num2;
-            break;
-        }
-
-        console.log(`Question: ${num1} ${operation} ${num2}`);
-        const answer = readlineSync.question('Your answer: ');
-
-        if (Number(answer) !== correctAnswer) {
-          console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-          console.log(`Let's try again, ${userName}!`);
-          return;
-        } else {
-          console.log('Correct!');
-        }
-      }
-      console.log(`Congratulations, ${userName}!`);
-    },
-   
-  };
-
-  if (gameFunctions[gameName]) {
-    gameFunctions[gameName]();
-  } else {
-    console.log('Unknown game');
-  }
-};
-
+// Экспорт функции startGame
 export { startGame };
