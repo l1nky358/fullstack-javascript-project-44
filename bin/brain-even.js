@@ -1,33 +1,41 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-console.log('Question: 42');
 
-console.log('Welcome to the Brain Even!');
+console.log('Hello, Tirion');
 
-const game = () => {
-  const number = Math.floor(Math.random() * 100) + 1;
-  const answer = readlineSync.question(`Is ${number} even? (yes/no): `);
-  const isEven = number % 2 === 0;
-  const userSaysYes = answer.toLowerCase() === 'yes';
+const readline = require('readline');
 
-  if (isEven && userSaysYes || !isEven && answer.toLowerCase() === 'no') {
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+const generateQuestion = () => {
+  const num = Math.floor(Math.random() * 100);
+  return num;
+};
+
+const isEven = (num) => num % 2 === 0;
+
+const askQuestion = (question) => {
+  return new Promise((resolve) => {
+    rl.question(`Question: ${question}\n`, (answer) => {
+      resolve(answer);
+    });
+  });
+};
+
+(async () => {
+  const number = generateQuestion();
+  const answer = await askQuestion(number);
+
+  const correctAnswer = isEven(number) ? 'yes' : 'no';
+
+  if (answer.trim().toLowerCase() === correctAnswer) {
     console.log('Correct!');
-    return true;
+  } else {
+    console.log(`Incorrect! The correct answer was ${correctAnswer}.`);
   }
-  console.log(`Incorrect! The correct answer was ${isEven ? 'yes' : 'no'}.`);
-  return false;
-};
 
-const playGame = () => {
-  let rounds = 3;
-  while (rounds > 0) {
-    if (!game()) {
-      console.log('Game over!');
-      return;
-    }
-    rounds -= 1;
-  }
-  console.log('Congratulations! You won!');
-};
-
-playGame();
+  console.log('Game over!');
+  rl.close();
+})();
