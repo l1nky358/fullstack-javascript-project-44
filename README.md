@@ -93,11 +93,16 @@ Congratulations, Sam!
 ##Неправильный ответ
 Welcome to the Brain Games!
 May I have your name? Sam
+Question: 7
+Your answer: no
+'no' is wrong answer ;(.Correct answer was 'yes'.)
+Let's try again, Sam
 
 $ brain-even
+##Правильный ответ
 Welcome to the Brain Games!
 May I have your name? Sam
-Hello, Bob!
+Hello, Sam!
 Answer "yes" if the number is even, otherwise answer "no".
 Question: 12
 Your answer: yes
@@ -109,7 +114,13 @@ Question: 20
 Your answer: yes
 Correct!
 Congratulations, Sam!
+
+##Неправильный ответ
+Welcome to the Brain Games!
+May I have your name? Sam
 Hello, Sam!
-Question: 7
-Your answer: no
-'no' is wrong answer ;(.Correct answer was 'yes'.)
+Answer "yes" if the number is even, otherwise answer "no".
+Question: 11
+Your answer: yes
+'yes' is wrong answer ;(. Correct answer was 'no'.
+Let's try again, Sam!
