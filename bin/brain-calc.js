@@ -1,4 +1,5 @@
-import readlineSync from 'readline-sync';
+#!/usr/bin/env node
+import readlineSync from 'readline-sync'
 
 const roundsCount = 3;
 
