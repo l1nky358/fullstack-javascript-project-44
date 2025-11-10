@@ -1,29 +1,28 @@
 #!/usr/bin/env node
-// This script implements the "Brain Even"
 
-import readline from 'readline';
+const { generateRandomNumber } = require('../src/utils');
+const readlineSync = require('readline-sync');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const isEven = num => num % 2 === 0;
 
-const generateQuestion = () => Math.floor(Math.random() * 100) + 1;
+const playBrainEvenGame = () => {
+  console.log("Welcome to the Brain Games!");
+  const name = readlineSync.question("May I have your name? ");
+  console.log(`Hello, ${name}`);
 
-const startGame = () => {
-  const questionNumber = generateQuestion();
-  console.log(`Question: ${questionNumber}`);
-  rl.question('Your answer (yes/no): ', (answer) => {
-    const isEven = questionNumber % 2 === 0;
-    const expectedAnswer = isEven ? 'yes' : 'no';
-
-    if (answer.toLowerCase() === expectedAnswer) {
-      console.log('Correct!');
-    } else {
-      console.log(`Incorrect. The correct answer is '${expectedAnswer}'.`);
+  for (let i = 0; i < 3; i++) {
+    const randomNum = generateRandomNumber();
+    console.log(`Question: ${randomNum}`);
+    const answer = readlineSync.question("Is it even? (yes/no): ").toLowerCase();
+    
+    if ((isEven(randomNum) && answer !== 'yes') || (!isEven(randomNum) && answer !== 'no')) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isEven(randomNum) ? 'yes' : 'no'}'.`);
+      return false;
     }
-    rl.close();
-  });
+    console.log("Correct!");
+  }
+
+  console.log(`Congratulations, ${name}!`);
 };
 
-startGame();
+playBrainEvenGame();
