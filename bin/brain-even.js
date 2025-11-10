@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
+console.log('Question: 42');
 
 console.log('Welcome to the Brain Even!');
 
