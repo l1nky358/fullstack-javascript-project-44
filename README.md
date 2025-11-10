@@ -93,6 +93,22 @@ Congratulations, Sam!
 ##Неправильный ответ
 Welcome to the Brain Games!
 May I have your name? Sam
+
+$ brain-even
+Welcome to the Brain Games!
+May I have your name? Sam
+Hello, Bob!
+Answer "yes" if the number is even, otherwise answer "no".
+Question: 12
+Your answer: yes
+Correct!
+Question: 17
+Your answer: no
+Correct!
+Question: 20
+Your answer: yes
+Correct!
+Congratulations, Sam!
 Hello, Sam!
 Question: 7
 Your answer: no
