@@ -26,7 +26,7 @@ const askQuestion = (question) => {
 
 (async () => {
   const number = generateQuestion();
-  const answer = await askQuestion(number);
+  const answer = await askQuestion(number.toString()); // исправлено здесь
 
   const correctAnswer = isEven(number) ? 'yes' : 'no';
 
