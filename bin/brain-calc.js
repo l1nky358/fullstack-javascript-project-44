@@ -1,15 +1,39 @@
-#!/usr/bin/env node
+// src/games/brain-calc.js
+import { getRandomInt } from '../utils.js';
 
-function startGame() {
-  console.log('Hello, Tirion');
-  const number1 = Math.floor(Math.random() * 100);
-  const number2 = Math.floor(Math.random() * 100);
-  const operations = ['+', '-', '*'];
-  const operation = operations[Math.floor(Math.random() * operations.length)];
+const operators = ['+', '-', '*'];
 
-  console.log(`Question: ${number1} ${operation} ${number2}`);
-}
+const generateExpression = () => {
+  const num1 = getRandomInt(1, 100);
+  const num2 = getRandomInt(1, 100);
+  const operator = operators[getRandomInt(0, operators.length - 1)];
+  const question = `${num1} ${operator} ${num2}`;
+  let answer;
+  switch (operator) {
+    case '+':
+      answer = num1 + num2;
+      break;
+    case '-':
+      answer = num1 - num2;
+      break;
+    case '*':
+      answer = num1 * num2;
+      break;
+  }
+  return { question, answer: answer.toString() };
+};
 
-startGame();
+const run = () => {
+  const { question, answer } = generateExpression();
+  console.log(`Question: ${question}`);
+  const userAnswer = prompt('Your answer:');
+  if (userAnswer === answer) {
+    console.log('Correct!');
+    return true;
+  } else {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
+    return false;
+  }
+};
 
-export { startGame };
+export default { run };
