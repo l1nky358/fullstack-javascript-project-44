@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const { generateRandomNumber } = require('../src/utils');
-const readlineSync = require('readline-sync');
+import readlineSync from 'readline-sync';
 
 const isEven = num => num % 2 === 0;
 
