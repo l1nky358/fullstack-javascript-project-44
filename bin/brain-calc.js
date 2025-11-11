@@ -1,4 +1,3 @@
-// src/games/brain-calc.js
 import { getRandomInt } from '../utils.js';
 
 const operators = ['+', '-', '*'];
