@@ -1,38 +1,28 @@
-import { getRandomInt } from '../utils.js';
+#!/usr/bin/env node
 
-const operators = ['+', '-', '*'];
+const { generateRandomNumber } = require('../src/utils');
+const readlineSync = require('readline-sync');
 
-const generateExpression = () => {
-  const num1 = getRandomInt(1, 100);
-  const num2 = getRandomInt(1, 100);
-  const operator = operators[getRandomInt(0, operators.length - 1)];
-  const question = `${num1} ${operator} ${num2}`;
-  let answer;
-  switch (operator) {
-    case '+':
-      answer = num1 + num2;
-      break;
-    case '-':
-      answer = num1 - num2;
-      break;
-    case '*':
-      answer = num1 * num2;
-      break;
+const isEven = num => num % 2 === 0;
+
+const playBrainEvenGame = () => {
+  console.log("Welcome to the Brain Games!");
+  const name = readlineSync.question("May I have your name? ");
+  console.log(`Hello, ${name}`);
+
+  for (let i = 0; i < 3; i++) {
+    const randomNum = generateRandomNumber();
+    console.log(`Question: ${randomNum}`);
+    const answer = readlineSync.question("Is it even? (yes/no): ").toLowerCase();
+    
+    if ((isEven(randomNum) && answer !== 'yes') || (!isEven(randomNum) && answer !== 'no')) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isEven(randomNum) ? 'yes' : 'no'}'.`);
+      return false;
+    }
+    console.log("Correct!");
   }
-  return { question, answer: answer.toString() };
+
+  console.log(`Congratulations, ${name}! You've won.`);
 };
 
-const run = () => {
-  const { question, answer } = generateExpression();
-  console.log(`Question: ${question}`);
-  const userAnswer = prompt('Your answer:');
-  if (userAnswer === answer) {
-    console.log('Correct!');
-    return true;
-  } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
-    return false;
-  }
-};
-
-export default { run };
+playBrainEvenGame();
