@@ -7,8 +7,8 @@ function startGame() {
   const operations = ['+', '-', '*'];
   const operation = operations[Math.floor(Math.random() * operations.length)];
 
-  const question = `Question: ${number1} ${operation} ${number2}`;
-console.log(`Question: ${number1} ${operation} ${number2}`);
+  const question ='Question: <number1> <operation> <number2>';
+console.log (Question: <number1> <operation> <number2>);
   
 }
 
