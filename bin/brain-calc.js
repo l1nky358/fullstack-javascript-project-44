@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 function startGame() {
+  console.log('Hello, Tirion');
   const number1 = Math.floor(Math.random() * 100);
   const number2 = Math.floor(Math.random() * 100);
   const operations = ['+', '-', '*'];
