@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
 const gameRule = 'Answer "yes" if the number is even, otherwise answer "no".';
