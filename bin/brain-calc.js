@@ -12,5 +12,4 @@ function startGame() {
   
 }
 
-
 export { startGame };
