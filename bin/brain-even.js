@@ -1,33 +1,38 @@
-#!/usr/bin/env node
+import { getRandomInt } from '../utils.js';
 
-import readlineSync from 'readline-sync';
+const operators = ['+', '-', '*'];
 
-const isEven = num => num % 2 === 0;
-
-const playBrainEvenGame = () => {
-  console.log("Welcome to the Brain Games!");
-  const name = readlineSync.question("May I have your name? ");
-  console.log(`Hello, ${name}!\nAnswer \"yes\" if the number is even, otherwise answer \"no\".`);
-
-  let roundCount = 0;
-
-  while (roundCount < 3) {
-    const randomNum = Math.floor(Math.random() * 100) + 1; // Генерируем случайное число от 1 до 100
-    console.log(`Question: ${randomNum}`);
-    const userAnswer = readlineSync.question("Your answer: ").trim().toLowerCase();
-
-    if ((isEven(randomNum) && userAnswer === 'yes') || (!isEven(randomNum) && userAnswer === 'no')) {
-      console.log("Correct!");
-      roundCount++;
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${isEven(randomNum) ? 'yes' : 'no'}'. Let's try again, ${name}!`);
+const generateExpression = () => {
+  const num1 = getRandomInt(1, 100);
+  const num2 = getRandomInt(1, 100);
+  const operator = operators[getRandomInt(0, operators.length - 1)];
+  const question = `${num1} ${operator} ${num2}`;
+  let answer;
+  switch (operator) {
+    case '+':
+      answer = num1 + num2;
       break;
-    }
+    case '-':
+      answer = num1 - num2;
+      break;
+    case '*':
+      answer = num1 * num2;
+      break;
   }
+  return { question, answer: answer.toString() };
+};
 
-  if (roundCount === 3) {
-    console.log(`Congratulations, ${name}!`);
+const run = () => {
+  const { question, answer } = generateExpression();
+  console.log(`Question: ${question}`);
+  const userAnswer = prompt('Your answer:');
+  if (userAnswer === answer) {
+    console.log('Correct!');
+    return true;
+  } else {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
+    return false;
   }
 };
 
-playBrainEvenGame();
+export default { run };
