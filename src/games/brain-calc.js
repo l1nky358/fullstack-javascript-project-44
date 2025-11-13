@@ -1,35 +1,30 @@
+import { getRandomInt } from '../utils'; 
+import { generateOperation } from '../utils';
 
-import { startGame } from '../src/index.js';
+const OPERATIONS = ['+', '-', '*'];
 
-const OPERATORS = ['+', '-', '*'];
-
-const getRandomOperator = () => OPERATORS[Math.floor(Math.random() * OPERATORS.length)];
-
-const generateRoundData = () => {
-  const num1 = Math.floor(Math.random() * 100) + 1;
-  const num2 = Math.floor(Math.random() * 100) + 1;
-  const operator = getRandomOperator();
-  const question = `${num1} ${operator} ${num2}`;
-
-  let answer;
-  switch (operator) {
+const generateQuestion = () => {
+  const num1 = getRandomInt(1, 50);
+  const num2 = getRandomInt(1, 50);
+  const operation = generateOperation();
+  const question = `${num1} ${operation} ${num2}`;
+  
+  let correctAnswer;
+  switch (operation) {
     case '+':
-      answer = num1 + num2;
+      correctAnswer = num1 + num2;
       break;
     case '-':
-      answer = num1 - num2;
+      correctAnswer = num1 - num2;
       break;
     case '*':
-      answer = num1 * num2;
+      correctAnswer = num1 * num2;
       break;
-    default:
-      answer = null; // на всякий случай
   }
 
-  return { question, answer };
+  return { question, correctAnswer };
 };
 
-export const startGameCalc = () => {
-  const gameDescription = 'What is the result of the expression?';
-  startGame(gameDescription, generateRoundData);
+export default {
+  generateQuestion,
 };
