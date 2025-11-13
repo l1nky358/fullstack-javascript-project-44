@@ -1,5 +1,5 @@
-import { getRandomInt } from 'src/utils.js'; 
-import { generateOperation } from 'src/utils.js';
+import { getRandomInt } from './src/utils.js'; 
+import { generateOperation } from './src/utils.js';
 
 const OPERATIONS = ['+', '-', '*'];
 
