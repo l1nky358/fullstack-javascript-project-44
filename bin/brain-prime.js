@@ -21,7 +21,7 @@ const runGame = () => {
   const totalQuestions = 3;
 
   for (let i = 0; i < totalQuestions; i++) {
-    const number = Math.floor(Math.random() * 100) + 1; 
+    const number = Math.floor(Math.random() * 100) + 1;
     console.log(`Question: ${number}`);
     const answer = readlineSync.question('Your answer: ').trim().toLowerCase();
 
