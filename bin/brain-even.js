@@ -1,32 +1,28 @@
-#!/usr/bin/env node
-import readlineSync from 'readline-sync'
+import readlineSync from 'readline-sync';
 
-const gameRule = 'Answer "yes" if the number is even, otherwise answer "no".'
+const getRandomNumber = () => Math.floor(Math.random() * 100) + 1;
 
-const getRandomNumber = () => Math.floor(Math.random() * 100) + 1
+export default () => {
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-const isEven = (num) => num % 2 === 0
+  const rounds = 3;
+  for (let i = 0; i < rounds; i += 1) {
+    const questionNumber = getRandomNumber();
+    const question = questionNumber.toString();
+    const answer = questionNumber % 2 === 0 ? 'yes' : 'no';
 
-console.log('Welcome to the Brain Games!')
-const name = readlineSync.question('May I have your name? ')
-console.log(`Hello, ${name}!`)
-console.log(gameRule)
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
 
-let correctAnswersCount = 0
-
-while (correctAnswersCount < 3) {
-  const number = getRandomNumber()
-  const correctAnswer = isEven(number) ? 'yes' : 'no'
-
-  console.log(`Question: ${number}`)
-  const userAnswer = readlineSync.question('Your answer: ').trim().toLowerCase()
-
-  if (userAnswer !== correctAnswer) {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
-    console.log(`Let's try again, ${name}!`)
-    process.exit(0)
-  } else {
-    console.log('Correct!')
-    correctAnswersCount += 1
+    if (userAnswer !== answer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
+      console.log(`Let's try again, ${userName}!`);
+      return;
+    }
+    console.log('Correct!');
   }
-}
+  console.log(`Congratulations, ${userName}!`);
+};
