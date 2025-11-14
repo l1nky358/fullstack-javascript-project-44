@@ -1,5 +1,5 @@
 import readline from 'readline-sync';
-import CalcGame from '../games/calc.js'; 
+import CalcGame from '../src/games/calc.js'; 
 
 const rl = readline.createInterface({
     input: process.stdin,
