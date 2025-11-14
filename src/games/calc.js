@@ -25,7 +25,8 @@ const generateExpression = () => {
 const playBrainCalc = () => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-  console.log('What is the result of the expression?'); // добавьте этот вывод
+  console.log('What is the result of the expression?');
+
   const rounds = 3;
   for (let i = 0; i < rounds; i++) {
     const { question, answer } = generateExpression();
