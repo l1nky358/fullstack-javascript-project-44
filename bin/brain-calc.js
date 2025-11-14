@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import playBrainCalc from '../src/games/calc.js';
+import readlineSync from 'readline-sync';
+import playBrainCalc from '../src/games/brain-calc.js';
 
-playBrainCalc();
+playBrainCalc(readlineSync);
