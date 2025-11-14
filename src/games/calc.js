@@ -1,13 +1,43 @@
-import { runGame } from '../src/index.js';
+import readlineSync from 'readline-sync';
 
-const getQuestionAndAnswer = () => {
-  const operations = ['+', '-', '*'];
-  const number1 = Math.floor(Math.random() * 100);
-  const number2 = Math.floor(Math.random() * 100);
-  const operation = operations[Math.floor(Math.random() * operations.length)];
-  const question = `${number1} ${operation} ${number2}`;
+const operators = ['+', '-', '*'];
+
+const generateExpression = () => {
+  const num1 = Math.floor(Math.random() * 100) + 1;
+  const num2 = Math.floor(Math.random() * 100) + 1;
+  const operator = operators[Math.floor(Math.random() * operators.length)];
+  const question = `${num1} ${operator} ${num2}`;
   let answer;
-  switch (operation) {
+  switch (operator) {
     case '+':
-      answer = number1 + number2;
+      answer = num1 + num2;
       break;
+    case '-':
+      answer = num1 - num2;
+      break;
+    case '*':
+      answer = num1 * num2;
+      break;
+  }
+  return { question, answer: answer.toString() };
+};
+
+const playBrainCalc = () => {
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+  const rounds = 3;
+  for (let i = 0; i < rounds; i++) {
+    const { question, answer } = generateExpression();
+    const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
+    if (userAnswer === answer) {
+      console.log('Correct!');
+    } else {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
+    }
+  }
+  console.log(`Congratulations, ${name}!`);
+};
+
+export default playBrainCalc;
