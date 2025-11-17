@@ -9,8 +9,7 @@ const getGCD = (a, b) => {
   return getGCD(b, a % b)
 }
 
-const generateNumbers = () =>
-  {
+const generateNumbers = () => {
   const min = 1
   const max = 100
   const num1 = Math.floor(Math.random() * (max - min + 1)) + min
@@ -18,8 +17,7 @@ const generateNumbers = () =>
   return [num1, num2]
 }
 
-const runGame = () => 
-  {
+const runGame = () => {
   console.log('Welcome to the Brain Games!')
   const name = readlineSync.question('May I have your name? ')
   console.log(`Hello, ${name}!`)
