@@ -3,7 +3,8 @@
 import readlineSync from 'readline-sync'
 
 const getGCD = (a, b) => {
-  if (b === 0) {
+  if (b === 0)
+  {
     return a
   }
   return getGCD(b, a % b)
