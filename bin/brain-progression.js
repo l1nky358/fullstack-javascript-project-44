@@ -19,7 +19,8 @@ const generateProgression = () => {
     if (i === hiddenIndex) {
       progression.push('..')
       correctAnswer = currentElement.toString()
-    } else {
+    }
+    else {
       progression.push(currentElement.toString())
     }
   }
@@ -44,7 +45,8 @@ const runGame = () => {
 
     if (userAnswer === correctAnswer) {
       console.log('Correct!')
-    } else {
+    } 
+    else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
       console.log(`Let's try again, ${name}!`)
       return
