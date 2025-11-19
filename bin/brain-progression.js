@@ -44,8 +44,7 @@ const runGame = () => {
     const userAnswer = readlineSync.question('Your answer: ').trim()
 
     if (userAnswer === correctAnswer) {
-      console.log('Correct!')
-    } 
+      console.log('Correct!') } 
     else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
       console.log(`Let's try again, ${name}!`)
