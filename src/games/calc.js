@@ -1,6 +1,6 @@
-import readlineSync from 'readline-sync';
+import readlineSync from 'readline-sync'
 
-const operators = ['+', '-', '*'];
+const operators = ['+', '-', '*']
 
 const generateExpression = () => {
   const num1 = Math.floor(Math.random() * 100) + 1
@@ -33,7 +33,7 @@ const playBrainCalc = () => {
     const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `)
     if (userAnswer === answer) {
       console.log('Correct!')
-    }
+    } 
     else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`)
       console.log(`Let's try again, ${name}!`)
