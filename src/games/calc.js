@@ -26,7 +26,6 @@ const playBrainCalc = () => {
   const name = readlineSync.question('May I have your name? ')
   console.log(`Hello, ${name}!`)
   console.log('What is the result of the expression?')
-  
   const rounds = 3
   for (let i = 0; i < rounds; i++) {
     const { question, answer } = generateExpression()
@@ -34,7 +33,7 @@ const playBrainCalc = () => {
     if (userAnswer === answer) {
       console.log('Correct!')
     } 
-    else {
+    else{
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`)
       console.log(`Let's try again, ${name}!`)
       return
