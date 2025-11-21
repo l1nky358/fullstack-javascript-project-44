@@ -32,8 +32,8 @@ const playBrainCalc = () => {
     const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `)
     if (userAnswer === answer) {
       console.log('Correct!')
-    } 
-    else{
+    }
+    else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`)
       console.log(`Let's try again, ${name}!`)
       return
